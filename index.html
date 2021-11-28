@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Mesa de trabalho</title>
+    <style type="text/css">
+        /* Adicione o código fonte de estilização */
+        * {
+            margin: 0;
+            text-align: center;
+
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 100;
+            font-size: 13px;
+            line-height: 19px;
+            color: #111;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        /* span {
+            text-decoration: none;
+            color: #0066c0;
+        } */
+
+        .conteudo {
+            border: 1px solid lightgray;
+            border-radius: 4px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            width: 314px;
+            position: relative;
+            padding: 14px 18px;
+            text-align: center;
+        }
+
+        .conteudo h1 {
+            text-align: left;
+            font-size: 28px;
+            padding: 0 0 4px;
+            margin: 0 0 10px;
+            font-weight: 400;
+        }
+
+        .formulario__nome {
+            display: block;
+        }
+
+        .formulario__grupo {
+            margin: 14px 0;
+            text-align: left;
+
+        }
+
+        .formulario__grupo button {
+            background: linear-gradient(180deg,
+                    rgb(255 255 255),
+                    rgb(24 182 221));
+            padding: 0px;
+            border-radius: 5px;
+            height: 30px;
+            width: 100%;
+            border-radius: 3px;
+            border-color: #c4c6cb;
+            border-style: solid;
+            border-width: 1px;
+            cursor: pointer;
+            padding: 1px 6px;
+            text-align: center;
+
+
+        }
+
+        .formulario__rotulo {
+            display: block;
+            text-align: left;
+            padding: 0 0 2px 2px;
+            font-weight: bold;
+            float: left;
+        }
+
+        .formulario__rotulo.interesse {
+            margin-bottom: 10px;
+        }
+
+        .fomulario__campo {
+            width: 95%;
+            background-color: #fff;
+            text-align: left;
+            height: 25px;
+            padding: 3px 7px;
+            line-height: normal;
+            border: 1px solid #a6a6a6;
+            border-top-color: #949494;
+            border-radius: 3px;
+
+            transition: transform, 1s;
+        }
+
+
+        .fomulario__campo:hover {
+
+            transform: scale(1.08);
+        }
+
+        .alerta {
+            color: #2b2b2b;
+            text-align: left;
+            padding-left: 0;
+            padding-bottom: 10px;
+            position: absolute;
+            top: 79px;
+            right: 22px;
+            font-size: 11px;
+        }
+
+
+
+        #aviso {
+            font-size: 12px;
+            margin: 18px 0 0;
+            text-align: left;
+            padding-bottom: 20px;
+
+        }
+
+
+        .icones {
+            width: 186px;
+        }
+
+         </style>
+</head>
+
+<body>
+
+    <header><img src="imagens/faca_seu_cadastro.png" class="icones"></header>
+    <article class="conteudo">
+
+        <form class="formulario" action="https://api.ctd/cadastrar" method="GET">
+
+            <div class="formulario__grupo">
+                <label class="formulario__rotulo" for="nome">Nome</label>
+                <input class="fomulario__campo transformacao" name="name" id="nome" type="text" maxlength="100" required>
+            </div>
+            <span class="alerta">No máximo 100 caracteres.</span>
+
+            <div class="formulario__grupo">
+                <label class="formulario__rotulo" for="email">E-mail</label>
+                <input class="fomulario__campo" name="email" id="email" type="email" required>
+            </div>
+
+            <div class="formulario__grupo">
+                <label class="formulario__rotulo" for="telefone">Telefone</label>
+                <input class="fomulario__campo" name="telefone" minlength="6" id="telefone" type="texto"
+                    placeholder="Somente numeros" pattern="[0-9]+$" required>
+            </div>
+
+            <div class="formulario__grupo">
+                <label class="formulario__rotulo" for="nascimento">Data de Nascimento</label>
+                <input class="fomulario__campo" name="nascimento" id="nascimento" type="date" required>
+            </div>
+
+            <div class="formulario__grupo">
+                <label class="formulario__rotulo" for="maioridade">Voce tem mais de 18 anos?</label>
+            </div>
+            </br>
+            <div class="formulario__grupo">
+                <input type="radio" name="maioridade" id="sim" value="sim" required>
+                <label for="sim">Sim</label>
+            </div>
+            <div class="formulario__grupo">
+                <input type="radio" name="maioridade" id="nao" value="nao" required>
+                <label for="nao">Não</label>
+            </div>
+
+            <div class="formulario__grupo">
+                <label for="interesse" class="formulario__rotulo interesse">Qual seu ponto de interesse preferido na
+                    cidade ?
+                </label>
+                <select name="ponto_preferencial" id="ponto_preferencial">
+                    <option disabled selected>Selecione uma opção</option>
+                    <optgroup label="Urbanos">
+                        <option value="shopping">Shopping</option>
+                        <option value="teatro">Teatro</option>
+                    </optgroup>
+                    <optgroup label="Naturais">
+                        <option value="praia">Praia</option>
+                        <option value="cachoeira">Cachoeira</option>
+                        <option value="parque">Parque</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="formulario__grupo">
+                <label for="interesse" class="formulario__rotulo">Qual seu interesse na cidade ?
+                </label>
+            </div><br>
+
+
+            <div class="formulario__grupo">
+                <input type="checkbox" name="interesse" id="turista" value="turista">
+                <label for="turista">Turista</label>
+            </div>
+
+            <div class="formulario__grupo">
+                <input type="checkbox" name="interesse" id="residente" value="residente">
+                <label for="residente">Residente</label>
+            </div>
+
+            <div class="formulario__grupo">
+                <input type="checkbox" name="interesse" id="estudante" value="estudante">
+                <label for="estudante">Estudante</label>
+            </div>
+
+            <div class="formulario__grupo">
+                <button type="submit">Enviar</button>
+            </div>
+
+            <div class="formulario__grupo">
+                <button type="reset">Limpar</button>
+            </div>
+
+
+        </form>
+    </article>
+</body>
+
+</html>
